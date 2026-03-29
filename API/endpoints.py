@@ -6,7 +6,7 @@ The endpoint called `endpoints` will return all available endpoints.
 from http import HTTPStatus
 from flask import Flask
 from flask_restx import Resource, Api
-# import db.db as db
+import db.db as db
 
 app = Flask(__name__)
 api = Api(app)
@@ -43,14 +43,20 @@ class Endpoints(Resource):
         return {"Available endpoints": endpoints}
 
 
-@api.route('/create_user/<username>')
+
+
+@api.route('/create_user/<username>&<password>&<email>')
 class CreateUser(Resource):
     """
     This class supports adding a user to the chat room.
     """
     @api.response(HTTPStatus.OK, 'Success')
-    def post(self, username):
+    def post(self, username, password, email):
         """
         This method adds a user to the chatroom.
         """
-        return username
+        user_id = db.create_user(username, password, email)
+        if not username:
+            return {"message": "Username cannot be empty"}, HTTPStatus.BAD_REQUEST
+        else: 
+            return {"message": f"User {username} created successfully", "user_id": user_id}, HTTPStatus.OK

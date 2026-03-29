@@ -1,3 +1,19 @@
+1, create my env
+    python3 -m venv annavenv
+2. activate it:
+    source annavenv/bin/activate
+3. activate postgrade
+    sudo systemctl start postgresql
+4. check if its running
+    sudo systemctl status postgresql
+5. start sql as a super user
+    sudo -u postgres psql
+3. Activate anna database: 
+    psql -U anna -d mybackend
+
+
+    
+
 # Chatbot server 
 
 

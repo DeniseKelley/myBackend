@@ -23,5 +23,8 @@ lint: FORCE
 dev_env: FORCE
 	pip3 install -r $(REQ_DIR)/requirements-dev.txt
 
+db_env: FORCE
+	sudo apt install -y < $(REQ_DIR)/requirements-dev.txt
+
 docs: FORCE
 	cd $(API_DIR); make docs
