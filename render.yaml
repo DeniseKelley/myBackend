@@ -2,23 +2,13 @@ services:
   - type: web
     name: myBackend
     env: python
-    region: oregon   # choose your preferred region
+    region: oregon
     plan: free
     buildCommand: pip install -r requirements/requirements.txt
     startCommand: gunicorn API.endpoints:app
     envVars:
       - key: DB_ENV
         value: remote
-      - key: DB_NAME
-        value: mybackend
-      - key: DB_USER
-        value: anna
-      - key: DB_PASSWORD
-        value: password
-      - key: DB_HOST
-        value: localhost
-      - key: DB_PORT
-        value: "5432"
       - key: DATABASE_URL
         value: postgresql://postgres.xfyaizroguvnlekxuouu:denislabmyBackend@aws-1-us-east-1.pooler.supabase.com:6543/postgres
 databases:
