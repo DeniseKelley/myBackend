@@ -2,7 +2,7 @@ services:
   - type: web
     name: myBackend
     env: python
-    region: connecticut   # choose your preferred region
+    region: oregon   # choose your preferred region
     plan: free
     buildCommand: pip install -r requirements/requirements.txt
     startCommand: gunicorn API.endpoints:app
