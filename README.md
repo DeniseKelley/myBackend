@@ -35,3 +35,8 @@
 - Use Swagger, pydoc and good docstrings for documentation
  
 
+# Backend
+- Flask REST Api
+- PostgreSQL
+- Supabase (for postgres)
+- Render to Deploy
